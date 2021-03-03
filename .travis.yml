@@ -1,0 +1,31 @@
+language: php
+php:
+  - "7.2"
+git:
+  depth: 200
+env:
+  - SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=true
+cache:
+  directories:
+    - vendor
+before_install:
+  - echo "Before install"
+install:
+  - docker-compose up -d
+before_script:
+  - echo "Before script"
+script:
+  - echo "script"
+before_deploy:
+  - echo "before deploy"
+after_success:
+  - echo "after success"
+deploy:
+  - provider: script
+    script: echo "Mock deploy, until we discuss docker image pushing"
+    skip_cleanup: true
+    on:
+      branch: main
+
+after_deploy:
+  - echo "after deploy"
