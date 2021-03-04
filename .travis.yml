@@ -1,31 +1,15 @@
 language: php
 php:
   - "7.2"
-git:
-  depth: 200
-env:
-  - SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=true
-cache:
-  directories:
-    - vendor
-before_install:
-  - echo "Before install"
-install:
-  - docker-compose up -d
-before_script:
-  - echo "Before script"
-script:
-  - echo "script"
-before_deploy:
-  - echo "before deploy"
-after_success:
-  - echo "after success"
-deploy:
-  - provider: script
-    script: echo "Mock deploy, until we discuss docker image pushing"
-    skip_cleanup: true
-    on:
-      branch: main
 
-after_deploy:
-  - echo "after deploy"
+install:
+  - echo "Building up docker containers"
+  - docker-compose --log-level ERROR up -d
+  - echo "Done"
+  - docker exec -ti php composer install --no-scripts
+
+script:
+  - docker exec -ti php vendor/bin/phpunit tests
+
+after_success:
+  - echo "Tests passed"
