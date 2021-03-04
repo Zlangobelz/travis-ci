@@ -1,4 +1,6 @@
 {
     "name": "root/www",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
 }
