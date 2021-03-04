@@ -4,8 +4,9 @@ php:
 
 install:
   - echo "Building up docker containers"
-  - docker-compose --log-level ERROR up -d
+  - docker-compose up -d
   - echo "Done"
+  - docker ps
   - docker exec -ti php composer install --no-scripts
 
 script:
