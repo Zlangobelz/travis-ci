@@ -1,22 +1,10 @@
 FROM php:7.2.32-fpm
 
-#RUN apt-get update && apt-get install -y \
-#        curl \
-#        libfreetype6-dev \
-#        libjpeg62-turbo-dev \
-#        libmcrypt-dev \
-#        libpng-dev \
-#        apt-transport-https \
-#        git \
-#        gnupg \
-#        zlib1g-dev \
-#        libicu-dev \
-#        libxml2-dev \
-#        libpq-dev \
-#        libgmp-dev \
-#        libbz2-dev \
-#    && docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ \
-#    && docker-php-ext-configure intl \
+RUN apt-get update && apt-get install -y \
+        curl \
+        git \
+        zip \
+        unzip
 #    && docker-php-ext-install mysqli pdo pdo_mysql gd zip bcmath intl soap pdo_pgsql gmp bz2
 
 COPY ./conf/php.ini /usr/local/etc/php/
