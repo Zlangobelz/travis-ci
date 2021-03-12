@@ -4,12 +4,14 @@ php:
 services:
   - docker
 
-jobs:
-  include:
-    - stage: Build Environment
-      script:
-        - make up
-    - stage: Deploy project
-      script: make deploy
-    - stage: Test
-      script: make tests
+install:
+  - echo "Building up docker containers"
+  - make up
+  - echo "Initializing project"
+  - make deploy
+
+script:
+  - make tests
+
+after_success:
+  - echo "Tests passed"
