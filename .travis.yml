@@ -2,6 +2,11 @@ language: php
 php:
   - "7.2"
 
+before_install:
+  - whoami
+  - find . -type d -exec chmod 755 {} \;
+  - find . -type f -exec chmod 644 {} \;
+
 install:
   - echo "Building up docker containers"
   - make build
