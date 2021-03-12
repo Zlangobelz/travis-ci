@@ -4,13 +4,12 @@ php:
 
 install:
   - echo "Building up docker containers"
-  - docker-compose up -d
-  - echo "Done"
-  - docker ps
-  - docker exec -ti php composer install --no-scripts
+  - make build
+  - echo "Initializing project"
+  - make deploy
 
 script:
-  - docker exec -ti php vendor/bin/phpunit tests
+  - make tests
 
 after_success:
   - echo "Tests passed"
