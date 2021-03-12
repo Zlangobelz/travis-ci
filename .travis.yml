@@ -3,9 +3,9 @@ php:
   - "7.2"
 
 before_install:
-  - whoami
-  - find . -type d -exec chmod 755 {} \;
-  - find . -type f -exec chmod 644 {} \;
+  - sudo usermod -a -G www-data `whoami`
+  - sudo chown -R www-data:www-data
+  - sudo chmod -R 774 /var/www
 
 install:
   - echo "Building up docker containers"
