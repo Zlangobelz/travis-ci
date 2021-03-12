@@ -1,15 +1,15 @@
 language: php
 php:
   - "7.2"
+services:
+  - docker
 
-install:
-  - echo "Building up docker containers"
-  - make build
-  - echo "Initializing project"
-  - make deploy
-
-script:
-  - make tests
-
-after_success:
-  - echo "Tests passed"
+jobs:
+  include:
+    - stage: Build Environment
+      script:
+        - make up
+    - stage: Deploy project
+      script: make deploy
+    - stage: Test
+      script: make tests

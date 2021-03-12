@@ -24,13 +24,13 @@ COPY ./conf/php-fpm.conf /usr/local/etc/php-fpm.d/
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN usermod -u 1000 www-data \
-  && groupmod -g 1000 www-data
-
-RUN chown -R www-data:www-data /var/www
-RUN chmod -R 774 /var/www
-
-USER www-data
+#RUN usermod -u 1000 www-data \
+#  && groupmod -g 1000 www-data
+#
+#RUN chown -R www-data:www-data /var/www
+#RUN chmod -R 774 /var/www
+#
+#USER www-data
 
 WORKDIR /var/www
 

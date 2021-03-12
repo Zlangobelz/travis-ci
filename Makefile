@@ -1,7 +1,10 @@
 .PHONY: tests
 
+up:
+	docker-compose up -d php
+
 build:
-	docker-compose up -d
+	docker-compose build $(c)
 
 deploy:
 	docker-compose exec php composer install --no-scripts
