@@ -3,9 +3,6 @@ php:
   - "7.2"
 
 install:
-  - sudo usermod -a -G www-data `whoami`
-  - sudo chown -R www-data:www-data /var/www
-  - sudo chmod -R 774 /var/www
   - echo "Building up docker containers"
   - make build
   - echo "Initializing project"
