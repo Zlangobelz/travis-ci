@@ -24,6 +24,10 @@ COPY ./conf/php-fpm.conf /usr/local/etc/php-fpm.d/
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN set -x ; \
+  addgroup -g 82 -S www-data ; \
+  adduser -u 82 -D -S -G www-data www-data && exit 0 ; exit 1
+
 RUN chown -R www-data:www-data /var/www
 
 USER www-data
