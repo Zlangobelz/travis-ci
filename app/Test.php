@@ -8,4 +8,9 @@ class Test
     {
         echo 2;
     }
+
+    public function hi()
+    {
+        echo 1;
+    }
 }
