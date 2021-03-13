@@ -11,4 +11,10 @@ install:
   - make deploy
 
 script:
-  - make tests
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make tests fi'
+
+deploy:
+  - provider: script
+    script: deploy/production.sh
+    on:
+      branch: main
