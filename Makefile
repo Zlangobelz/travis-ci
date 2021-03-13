@@ -1,4 +1,4 @@
-.PHONY: tests
+.PHONY: tests deploy
 
 up:
 	docker-compose up -d php
