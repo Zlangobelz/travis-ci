@@ -12,6 +12,3 @@ install:
 
 script:
   - make tests
-
-after_success:
-  - echo "Tests passed"

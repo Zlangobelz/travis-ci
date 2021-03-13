@@ -10,4 +10,5 @@ deploy:
 	docker-compose exec php composer install --no-scripts
 
 tests:
-	docker-compose exec php vendor/bin/phpunit tests
+	docker-compose exec php composer phpcs
+	docker-compose exec php composer tests
