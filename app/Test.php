@@ -6,6 +6,6 @@ class Test
 {
     public function hello()
     {
-        echo 1;
+        echo 2;
     }
 }
