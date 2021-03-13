@@ -1,8 +1,13 @@
 language: php
+sudo: false
 php:
   - "7.2"
 services:
   - docker
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 install:
   - echo "Building up docker containers"
