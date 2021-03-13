@@ -11,8 +11,6 @@ install:
   - make deploy
 
 script:
-  - echo "Initializing application"
-  - make deploy
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make tests; fi'
 
 deploy:
