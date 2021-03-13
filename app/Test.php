@@ -4,7 +4,8 @@ namespace App;
 
 class Test
 {
-    public function hello() {
+    public function hello()
+    {
         echo 2;
     }
 }
